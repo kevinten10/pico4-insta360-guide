@@ -18,9 +18,19 @@ def print_banner():
 
 
 def convert_videos():
-    print("\n🎬 启动视频转换...")
-    from convert_360 import main as convert_main
-    convert_main()
+    print("\n🎬 选择转换模式:")
+    print("  1. 基础转换 (convert_360.py)")
+    print("  2. 增强版转换 (convert_360_enhanced.py) - 推荐")
+    
+    choice = input("\n请输入选项 (1-2, 默认2): ").strip() or "2"
+    
+    if choice == "1":
+        from convert_360 import main as convert_main
+        convert_main()
+    else:
+        import sys
+        from convert_360_enhanced import main as enhanced_convert_main
+        enhanced_convert_main()
 
 
 def sync_to_pico():
