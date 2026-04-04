@@ -17,39 +17,39 @@ class SyncHandler(FileSystemEventHandler):
 
     def sync_file(self, file_path):
         file_name = os.path.basename(file_path)
-        print(f"馃敶 检测到新视频: {file_name}")
+        print(f"🔍 检测到新视频: {file_name}")
         
         # 尝试通过 ADB 传输 (Android Debug Bridge)
-        print(f"鈺 正在尝试通过 ADB 传输到 PICO 4...")
+        print(f"⏳ 正在尝试通过 ADB 传输到 PICO 4...")
         try:
             # 检查 ADB 设备
             result = subprocess.run(["adb", "devices"], capture_output=True, text=True)
             if "device" in result.stdout.split('\n')[1]:
                 cmd = ["adb", "push", file_path, PICO_DEST_DIR]
                 subprocess.run(cmd, check=True)
-                print(f"鉁 同步成功: {file_name}")
+                print(f"✅ 同步成功: {file_name}")
             else:
-                print("鈿 未检测到 PICO 4 设备。请检查 USB 连接并开启 USB 调试。")
-                print(f"馃搳 请手动拷贝至: {PICO_DEST_DIR}")
+                print("⚠️ 未检测到 PICO 4 设备。请检查 USB 连接并开启 USB 调试。")
+                print(f"📂 请手动拷贝至: {PICO_DEST_DIR}")
         except FileNotFoundError:
-            print("鈿 未安装 ADB 环境。建议安装 Android Platform Tools 以实现自动同步。")
-            print(f"馃搳 请手动拷贝至: {PICO_DEST_DIR}")
+            print("❌ 未安装 ADB 环境。建议安装 Android Platform Tools 以实现自动同步。")
+            print(f"📂 请手动拷贝至: {PICO_DEST_DIR}")
         except Exception as e:
-            print(f"鉁 传输失败: {e}")
+            print(f"❌ 传输失败: {e}")
 
 if __name__ == "__main__":
     if not os.path.exists(SOURCE_DIR):
         os.makedirs(SOURCE_DIR)
-        print(f"馃摕 已创建监控目录: {SOURCE_DIR}")
+        print(f"📁 已创建监控目录: {SOURCE_DIR}")
 
     event_handler = SyncHandler()
     observer = Observer()
     observer.schedule(event_handler, SOURCE_DIR, recursive=False)
     
-    print(f"馃殗 自动化同步服务已启动...")
-    print(f"馃搳 监控目录: {os.path.abspath(SOURCE_DIR)}")
-    print(f"馃搳 目标设备: PICO 4 ({PICO_DEST_DIR})")
-    print("鎸 Ctrl+C 停止服务")
+    print(f"🚀 自动化同步服务已启动...")
+    print(f"ℹ️ 监控目录: {os.path.abspath(SOURCE_DIR)}")
+    print(f"ℹ️ 目标设备: PICO 4 ({PICO_DEST_DIR})")
+    print("💡 按 Ctrl+C 停止服务")
 
     try:
         while True:

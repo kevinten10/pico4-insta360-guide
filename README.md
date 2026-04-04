@@ -1,4 +1,4 @@
-# PICO 4 & Insta360 VR Workflow 馃
+# PICO 4 & Insta360 VR Workflow 👓
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Device: PICO 4](https://img.shields.io/badge/Device-PICO%204-blue.svg)](https://www.picoxr.com/)
@@ -8,12 +8,12 @@
 
 ---
 
-## 馃倴 项目简介
+## ℹ️ 项目简介
 本项目致力于为 **Insta360** 用户提供在 **PICO 4 VR 眼镜**上观看 360°/180° 全景视频的最佳实践流程。包含全套导出参数、传输方案以及一个自动化的同步脚本。
 
 ---
 
-## 馃殗 标准工作流 (Standard Workflow)
+## 🚀 标准工作流 (Standard Workflow)
 
 ### 1. 录制 (Capture)
 *   **设备建议**：Insta360 X3/X4, RS, EVO。
@@ -38,18 +38,18 @@
 
 ---
 
-## 馃搳 参数矩阵 (Parameter Matrix)
+## 📊 参数矩阵 (Parameter Matrix)
 
 | 视频类型 | 导出设置 | 播放器模式 | 推荐感官 |
 | :--- | :--- | :--- | :--- |
-| **360 全景** | 5.7K/H.265 | 360° / 2D | 馃専 极佳 |
-| **180 3D** | 5.7K/H.265 | 180° / 3D (左右) | 馃 沉浸感强 |
-| **常规视频** | 4K/H.264 | 2D / 巨幕模式 | 馃摴 电影感 |
+| **360 全景** | 5.7K/H.265 | 360° / 2D | ✨ 极佳 |
+| **180 3D** | 5.7K/H.265 | 180° / 3D (左右) | 🔥 沉浸感强 |
+| **常规视频** | 4K/H.264 | 2D / 巨幕模式 | 🎬 电影感 |
 
 ---
 
 <a name="english-version"></a>
-## 馃倳 English Version
+## 🌐 English Version
 
 ### Project Overview
 A complete workflow and toolset for Insta360 content on PICO 4 VR.
@@ -66,6 +66,6 @@ A complete workflow and toolset for Insta360 content on PICO 4 VR.
 
 ---
 
-## 馃摓 贡献与支持
+## 🤝 贡献与支持
 欢迎提交 Issue 或 Pull Request 来改进此指南！
 - Maintainer: [kevinten-ai](https://github.com/kevinten-ai)
