@@ -23,7 +23,15 @@
 ## 🚀 核心功能
 
 ### 1. 📂 视频转换与同步
-- **自动转换**：将 Insta360 `.insv` 文件转换为全景 `.mp4`
+- **两种转换模式**：
+  - 基础转换 (`convert_360.py`) - 简单快速
+  - 增强版转换 (`convert_360_enhanced.py`) - 功能强大，推荐使用
+- **增强版特性**：
+  - FFmpeg 和 v360 滤镜自动检测
+  - 相机型号预设 (X3/X4/ONE_X2)
+  - 可自定义 FOV、分辨率、质量参数
+  - 状态显示和进度报告
+  - 丰富的命令行参数
 - **自动同步**：通过 ADB 自动推送到 PICO 4
 - **主入口**：`python main.py` 一站式操作
 
@@ -69,10 +77,43 @@ python main.py learn     # 查看学习资源
 python main.py all       # 执行全部
 ```
 
-### 3. 学习路径
+### 3. 视频转换使用
+
+#### 增强版转换脚本（推荐）
+```bash
+# 查看状态
+python convert_360_enhanced.py --status
+
+# 基础转换
+python convert_360_enhanced.py
+
+# 指定相机型号
+python convert_360_enhanced.py --camera X3
+
+# 自定义质量
+python convert_360_enhanced.py --crf 22 --preset medium
+
+# 自定义分辨率
+python convert_360_enhanced.py --resolution 5760:2880
+```
+
+#### 命令行参数说明
+| 参数 | 说明 |
+|------|------|
+| `--camera` | 相机型号 (X3/X4/ONE_X2) |
+| `--preset` | 编码预设 (ultrafast~veryslow) |
+| `--crf` | 质量值 (0-51, 越小越好) |
+| `--ih-fov` | 输入水平视场角 |
+| `--iv-fov` | 输入垂直视场角 |
+| `--resolution` | 输出分辨率 (如 5760:2880) |
+| `--overwrite` | 覆盖已存在文件 |
+| `--status` | 仅显示状态 |
+
+### 4. 学习路径
 1. 阅读 `tutorials/01_quick_start.md` 快速入门
-2. 浏览 `learning/` 目录深入学习
-3. 参考 `examples/unity/` 开始开发
+2. 阅读 `tutorials/02_insta360_to_pico_conversion.md` 转换详解
+3. 浏览 `learning/` 目录深入学习
+4. 参考 `examples/unity/` 开始开发
 
 ---
 
@@ -80,29 +121,32 @@ python main.py all       # 执行全部
 
 ```
 vr/
-├── main.py                    # 主入口程序
-├── convert_360.py            # 视频转换脚本
-├── sync_to_pico.py           # 设备同步脚本
-├── requirements.txt           # Python依赖
-├── config/                    # 配置目录
-│   ├── config.yaml           # 主配置文件
-│   └── config_loader.py      # 配置加载器
-├── learning/                  # 学习资源
+├── main.py                         # 主入口程序
+├── convert_360.py                 # 基础视频转换脚本
+├── convert_360_enhanced.py        # 增强版视频转换脚本 ⭐
+├── sync_to_pico.py                # 设备同步脚本
+├── requirements.txt                # Python依赖
+├── config/                         # 配置目录
+│   ├── config.yaml                # 主配置文件
+│   └── config_loader.py           # 配置加载器
+├── learning/                       # 学习资源
 │   ├── 01_metaverse_introduction.md
 │   ├── 02_vr_development_basics.md
 │   └── 03_advanced_topics.md
-├── ai_content/                # AI内容生成
+├── ai_content/                     # AI内容生成
 │   ├── vr_scene_generator.py
 │   ├── avatar_generator.py
 │   ├── story_generator.py
-│   ├── generated/            # 生成的场景
-│   ├── avatars/              # 生成的Avatar
-│   └── stories/              # 生成的故事
-├── examples/                  # 示例代码
+│   ├── generated/                 # 生成的场景
+│   ├── avatars/                   # 生成的Avatar
+│   └── stories/                   # 生成的故事
+├── examples/                       # 示例代码
 │   └── unity/
-├── tutorials/                 # 教程
-├── raw/                       # 原始视频输入
-└── exports/                   # 转换后视频输出
+├── tutorials/                      # 教程
+│   ├── 01_quick_start.md
+│   └── 02_insta360_to_pico_conversion.md ⭐
+├── raw/                            # 原始视频输入
+└── exports/                        # 转换后视频输出
 ```
 
 ---
