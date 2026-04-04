@@ -1,20 +1,24 @@
-# GEMINI.md - PICO 4 & Insta360 Guide Project
+# GEMINI.md - PICO 4 & Insta360 Full-Auto Pipeline
 
 ## Project Overview
-This project provides a comprehensive workflow and automation tools for viewing Insta360 VR content on PICO 4 headsets.
+This project provides a full-auto pipeline for converting and syncing Insta360 VR content to PICO 4 headsets.
 
-## Key Components
-- `sync_to_pico.py`: A Python automation script that monitors the `exports/` directory and syncs MP4 files to the connected PICO 4 device via ADB.
-- `README.md`: Bilingual documentation (CN/EN) detailing the best export settings (H.265, 5.7K) and playback modes.
-- `requirements.txt`: Python dependencies (e.g., `watchdog`).
-- `LICENSE`: MIT License.
+## Automation Pipeline
+1.  **Ingestion**: User places `.insv` files into the `raw/` directory.
+2.  **Conversion (`convert_360.py`)**:
+    *   Uses FFmpeg with the `v360` filter for stitching.
+    *   Template configured for Insta360 X3/X4 dual-fisheye files.
+    *   Outputs H.265 MP4 into the `exports/` directory.
+3.  **Synchronization (`sync_to_pico.py`)**:
+    *   Monitors `exports/` for new MP4 files.
+    *   Pushes files to PICO 4 via `adb push`.
 
-## Development & Usage
-1.  **Environment Setup**: Ensure `adb` (Android Debug Bridge) is installed in the system PATH.
-2.  **Script Execution**: Run `python sync_to_pico.py` to start the file monitor.
-3.  **Deployment**: All updates should be pushed to `https://github.com/kevinten-ai/pico4-insta360-guide`.
+## Key Files
+- `convert_360.py`: The core stitching script (Requires FFmpeg).
+- `sync_to_pico.py`: The ADB-based transfer tool.
+- `README.md`: End-user documentation (Bilingual).
+- `raw/` & `exports/`: Ingestion and processing directories.
 
-## Future Roadmap
-- [ ] Add support for wireless transfer via AirScreen/Skybox protocol.
-- [ ] Implement a GUI for the synchronization script.
-- [ ] Create a "best settings" export preset for Insta360 Studio.
+## Development & Environment
+- **Prerequisites**: FFmpeg, Python 3, ADB (Android Platform Tools).
+- **Deployment**: `https://github.com/kevinten-ai/pico4-insta360-guide`.

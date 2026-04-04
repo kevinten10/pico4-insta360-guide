@@ -9,60 +9,52 @@
 ---
 
 ## ℹ️ 项目简介
-本项目致力于为 **Insta360** 用户提供在 **PICO 4 VR 眼镜**上观看 360°/180° 全景视频的最佳实践流程。包含全套导出参数、传输方案以及一个自动化的同步脚本。
+本项目致力于为 **Insta360** 用户提供在 **PICO 4 VR 眼镜**上观看全景视频的**全自动流水线**。
 
 ---
 
-## 🚀 标准工作流 (Standard Workflow)
+## 🚀 核心功能与自动化 (Features & Automation)
 
-### 1. 录制 (Capture)
-*   **设备建议**：Insta360 X3/X4, RS, EVO。
-*   **设置**：使用 5.7K/30fps 或 8K/30fps (X4) 获得最佳沉浸感。
+### 1. 📂 自动转换 (Auto-Convert) - **NEW!**
+我们新增了基于 FFmpeg 的自动化转换脚本，可将原始 `.insv` 文件直接转换为全景 `.mp4`。
+*   **脚本**：`python convert_360.py`
+*   **输入**：将原始文件放入 `raw/` 文件夹。
+*   **输出**：自动生成拼接好的全景视频至 `exports/`。
 
-### 2. 导出 (Export)
-*   **工具**：Insta360 Studio (PC)。
-*   **编码**：**H.265 (HEVC)** —— 相比 H.264，在相同体积下提供更高画质。
-*   **分辨率**：务必选 5.7K 或更高。
-*   **视野**：选择 **Equirectangular (等距柱状投影)**。
-*   **码率**：建议 100Mbps。
+### 2. ⚡ 自动同步 (Auto-Sync)
+监控 `exports/` 目录，一旦转换完成，立即通过 ADB 将视频推送到 PICO 4。
+*   **脚本**：`python sync_to_pico.py`
 
-### 3. 自动同步 (Automated Sync) - **NEW!**
-我们提供了一个 Python 监控脚本，可以将导出的 MP4 自动推送到连接的 PICO 4。
-*   **安装依赖**：`pip install -r requirements.txt`
-*   **运行脚本**：`python sync_to_pico.py`
-*   **原理**：脚本监控 `exports/` 目录，通过 ADB 将新文件推送到 PICO 4 的 `Movies/` 文件夹。
-
-### 4. 观看 (Play)
-*   打开 PICO 4 “文件管理器”。
-*   在播放设置中手动选择：**360°** / **2D** 或 **3D (上下/左右)**。
+### 3. 🛠️ 标准工作流 (The Pipeline)
+1.  **录制**：使用 Insta360 拍摄。
+2.  **拷贝**：将文件放入项目 `raw/` 目录。
+3.  **运行**：`python convert_360.py && python sync_to_pico.py`
+4.  **观看**：戴上 PICO 4 直接观看。
 
 ---
 
-## 📊 参数矩阵 (Parameter Matrix)
+## 📊 参数矩阵与配置 (Tech Specs)
 
-| 视频类型 | 导出设置 | 播放器模式 | 推荐感官 |
-| :--- | :--- | :--- | :--- |
-| **360 全景** | 5.7K/H.265 | 360° / 2D | ✨ 极佳 |
-| **180 3D** | 5.7K/H.265 | 180° / 3D (左右) | 🔥 沉浸感强 |
-| **常规视频** | 4K/H.264 | 2D / 巨幕模式 | 🎬 电影感 |
+| 环节 | 推荐配置 |
+| :--- | :--- |
+| **分辨率** | 5.7K (X3) / 8K (X4) |
+| **编码** | **H.265 (HEVC)** |
+| **脚本依赖** | `ffmpeg` (需安装在系统路径) |
 
 ---
 
 <a name="english-version"></a>
 ## 🌐 English Version
 
-### Project Overview
-A complete workflow and toolset for Insta360 content on PICO 4 VR.
+### Full-Auto Pipeline
+1.  **Raw Input**: Put `.insv` files in `raw/`.
+2.  **Process**: Run `convert_360.py` for stitching (FFmpeg v360).
+3.  **Sync**: Run `sync_to_pico.py` for ADB transfer to PICO 4.
 
-### Key Features
-- **Auto-Sync Script**: Uses Python and ADB to sync exports directly to your headset.
-- **Optimization Guide**: Best export settings for H.265 5.7K+ playback.
-- **Multi-method Transfer**: USB, Samba, and Automation.
-
-### Quick Start
-1. Connect PICO 4 with USB Debugging enabled.
-2. Put your exported MP4 into the `exports/` folder.
-3. Run `python sync_to_pico.py` for auto-transfer.
+### Prerequisites
+- Python 3.x
+- FFmpeg (for stitching)
+- ADB (for device sync)
 
 ---
 
