@@ -64,11 +64,15 @@ def find_insv_pairs():
         pairs[base].append(f)
     return pairs
 
-if __name__ == "__main__":
+def main():
     if not os.path.exists(EXPORT_DIR):
         os.makedirs(EXPORT_DIR)
 
     insv_pairs = find_insv_pairs()
+    if not insv_pairs:
+        print("⚠️ 未找到待转换的 .insv 文件")
+        return
+
     for base_name, files in insv_pairs.items():
         output_name = base_name.replace("_XX_", "_FULL_").replace(".insv", ".mp4")
         output_path = os.path.join(EXPORT_DIR, output_name)
@@ -77,3 +81,7 @@ if __name__ == "__main__":
             convert_to_360_equirectangular(files, output_path)
         else:
             print(f"⏩ 跳过已存在文件: {output_name}")
+
+
+if __name__ == "__main__":
+    main()

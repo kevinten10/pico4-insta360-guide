@@ -1,0 +1,60 @@
+# PICO 4 VR 项目配置文件
+
+# 路径配置
+paths:
+  raw_dir: "./raw"
+  export_dir: "./exports"
+  ai_content_dir: "./ai_content"
+  learning_dir: "./learning"
+
+# FFmpeg 配置
+ffmpeg:
+  path: "ffmpeg"
+  video_codec: "libx265"
+  preset: "fast"
+  crf: 23
+  audio_codec: "copy"
+
+# PICO 设备配置
+pico:
+  adb_path: "adb"
+  destination_dir: "/sdcard/Movies/"
+  supported_extensions:
+    - ".mp4"
+    - ".m4v"
+    - ".mkv"
+
+# Insta360 相机配置
+insta360:
+  camera_model: "X3"
+  input_extension: ".insv"
+  lens_patterns:
+    - "_00_"
+    - "_10_"
+
+# AI 内容生成配置
+ai_content:
+  enabled: true
+  output_formats:
+    - "json"
+    - "unity"
+  scene_themes:
+    - "forest"
+    - "space"
+    - "beach"
+  story_genres:
+    - "adventure"
+    - "mystery"
+    - "fantasy"
+    - "sci-fi"
+
+# 日志配置
+logging:
+  level: "INFO"
+  log_to_file: true
+  log_file: "./logs/vr_project.log"
+
+# 性能配置
+performance:
+  max_concurrent_conversions: 1
+  file_watch_delay: 2

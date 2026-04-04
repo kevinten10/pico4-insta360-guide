@@ -37,7 +37,7 @@ class SyncHandler(FileSystemEventHandler):
         except Exception as e:
             print(f"❌ 传输失败: {e}")
 
-if __name__ == "__main__":
+def main():
     if not os.path.exists(SOURCE_DIR):
         os.makedirs(SOURCE_DIR)
         print(f"📁 已创建监控目录: {SOURCE_DIR}")
@@ -52,8 +52,13 @@ if __name__ == "__main__":
     print("💡 按 Ctrl+C 停止服务")
 
     try:
+        observer.start()
         while True:
             time.sleep(1)
     except KeyboardInterrupt:
         observer.stop()
     observer.join()
+
+
+if __name__ == "__main__":
+    main()
