@@ -1,204 +1,312 @@
-# PICO 4 VR 项目工具箱 👓
+<div align="center">
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Device: PICO 4](https://img.shields.io/badge/Device-PICO%204-blue.svg)](https://www.picoxr.com/)
-[![Camera: Insta360](https://img.shields.io/badge/Camera-Insta360-red.svg)](https://www.insta360.com/)
-[![AI-Powered](https://img.shields.io/badge/AI-Powered-green.svg)](https://github.com/kevinten-ai)
+<img src="https://img.shields.io/badge/PICO-4-VR-blue?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iIzQyODVGNCIgZD0iTTEyIDJjNS41MiAwIDEwIDQuNDggMTAgMTBzLTQuNDggMTAtMTAgMTAtMS43NyAwLTMuMjMtNi44My02LjgzLTEwUzYuNDggMiAxMiAyem0wIDE4Yy00LjQyIDAtOC0zLjU4LTgtOHMzLjU4LTggOC04IDMuNTggOCA4IDh6Ii8+PC9zdmc+" alt="PICO 4">
+<img src="https://img.shields.io/badge/Insta360-X3/X4-red?style=for-the-badge&logo=insta360&logoColor=white" alt="Insta360">
+<img src="https://img.shields.io/badge/Python-3.12+-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+<img src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge" alt="License">
 
-[中文](README.md) | [English](#english-version)
+</div>
+
+<h1 align="center">👓 PICO 4 VR 项目工具箱</h1>
+
+<p align="center">
+  <strong>一站式 PICO 4 VR 开发与元宇宙探索解决方案</strong>
+</p>
+
+<p align="center">
+  <a href="#功能特性">功能特性</a> •
+  <a href="#快速开始">快速开始</a> •
+  <a href="#学习体系">学习体系</a> •
+  <a href="#文档结构">文档结构</a> •
+  <a href="#贡献指南">贡献指南</a>
+</p>
 
 ---
 
-## ℹ️ 项目简介
+## ✨ 为什么选择本项目?
 
-这是一个全面的 **PICO 4 VR 开发和元宇宙探索工具箱**，包含：
-
-- 🎬 **Insta360视频自动转换与同步** - 原始功能
-- 📚 **元宇宙与VR开发学习资源** - 新增！
-- 🤖 **AI驱动的VR内容生成** - 新增！
-- 💻 **Unity开发示例代码** - 新增！
+| 特性 | 本项目 | 传统方案 |
+|:---:|:---:|:---:|
+| 🎬 视频转换 | ⚡ 一键自动 | 🔧 手动操作 |
+| 📚 学习资源 | 📖 完整体系 | 🔍 分散难找 |
+| 🤖 AI内容 | 🎨 内置生成 | ❌ 无 |
+| 💻 示例代码 | ✅ 即用模板 | ✏️ 从零编写 |
+| 🇨🇳 中文支持 | 💯 完整文档 | 🌐 英文为主 |
+| 🆓 开源免费 | MIT许可 | 部分收费 |
 
 ---
 
-## 🚀 核心功能
+## 🚀 功能特性
 
-### 1. 📂 视频转换与同步
-- **两种转换模式**：
-  - 基础转换 (`convert_360.py`) - 简单快速
-  - 增强版转换 (`convert_360_enhanced.py`) - 功能强大，推荐使用
-- **增强版特性**：
-  - FFmpeg 和 v360 滤镜自动检测
-  - 相机型号预设 (X3/X4/ONE_X2)
-  - 可自定义 FOV、分辨率、质量参数
-  - 状态显示和进度报告
-  - 丰富的命令行参数
-- **自动同步**：通过 ADB 自动推送到 PICO 4
-- **主入口**：`python main.py` 一站式操作
+### 🎬 Insta360 视频流水线
 
-### 2. 📚 学习资源库
-完整的学习路径，包含：
-- `learning/01_metaverse_introduction.md` - 元宇宙入门
-- `learning/02_vr_development_basics.md` - VR开发基础
-- `learning/03_advanced_topics.md` - VR高级主题
+```
+Insta360 拍摄 → raw/ 目录 → 自动转换 → exports/ → 同步到 PICO 4
+```
 
-### 3. 🤖 AI内容生成
-- **VR场景生成**：森林、太空、海滩等主题
-- **虚拟形象生成**：随机Avatar生成器
-- **VR故事生成**：冒险、悬疑、奇幻、科幻剧本
-- **Unity脚本自动生成**：快速启动项目
+- **双模式转换**: 基础模式 / 增强模式 (推荐)
+- **智能检测**: FFmpeg + v360 滤镜自动验证
+- **相机预设**: X3 / X4 / ONE_X2 一键配置
+- **参数可调**: FOV、分辨率、质量、编码器全自定义
 
-### 4. 💻 Unity示例代码
-- `examples/unity/HelloPICO.cs` - 基础控制器交互
-- `examples/unity/VRMovement.cs` - 移动与传送系统
+### 🤖 AI 内容生成器
 
-### 5. ⚙️ 配置系统
-- YAML配置文件支持
-- 可自定义所有参数
+| 生成器 | 输出 | 用途 |
+|:---:|:---|:---|
+| 🌲 场景生成 | JSON + Unity脚本 | 快速搭建VR世界 |
+| 👤 Avatar生成 | 完整角色配置 | VRChat/元宇宙形象 |
+| 📖 故事生成 | 剧本+控制器脚本 | 互动式叙事应用 |
+
+### 📚 完整学习体系
+
+```
+入门(1周) → 基础(1月) → 进阶(2月) → 高级(半年) → 专家(持续)
+   ↓           ↓          ↓           ↓          ↓
+ 元宇宙概念   Unity基础   手部追踪    Shader编程   商业发布
+ PICO设备     C#编程      多人网络    性能优化     运营推广
+ 视频转换     VR交互      UI设计     AI系统       社区建设
+```
+
+### 💻 即用型代码
+
+```csharp
+// HelloPICO.cs - 控制器交互
+public class HelloPICO : MonoBehaviour {
+    void Update() {
+        if (PXR_Input.GetControllerButtonDown(...)) {
+            // 你的逻辑
+        }
+    }
+}
+
+// VRMovement.cs - 移动传送系统
+public class VRMovement : MonoBehaviour {
+    // 支持摇杆移动、瞬移、旋转
+}
+```
 
 ---
 
 ## 🎯 快速开始
 
-### 1. 安装依赖
+### 环境要求
+
+- Python 3.10+
+- [FFmpeg](https://ffmpeg.org/) (视频处理)
+- ADB (可选, 设备同步)
+
+### 安装
+
 ```bash
+# 克隆项目
+git clone https://github.com/kevinten-ai/pico4-insta360-guide.git
+cd pico4-insta360-guide
+
+# 安装依赖
 pip install -r requirements.txt
 ```
 
-### 2. 运行主程序
+### 使用
+
 ```bash
+# 交互式菜单
 python main.py
-```
-或使用命令行参数：
-```bash
+
+# 或命令行
 python main.py convert   # 转换视频
 python main.py sync      # 同步到PICO
-python main.py ai        # 生成AI内容
-python main.py learn     # 查看学习资源
-python main.py all       # 执行全部
+python main.py ai        # AI内容生成
+python main.py learn     # 查看资源
+python main.py all       # 全部执行
 ```
 
-### 3. 视频转换使用
+### 转换示例
 
-#### 增强版转换脚本（推荐）
 ```bash
-# 查看状态
-python convert_360_enhanced.py --status
+# 1. 将 .insv 文件放入 raw/
+# 2. 运行转换
+python convert_360_enhanced.py --camera X3 --crf 22
 
-# 基础转换
-python convert_360_enhanced.py
-
-# 指定相机型号
-python convert_360_enhanced.py --camera X3
-
-# 自定义质量
-python convert_360_enhanced.py --crf 22 --preset medium
-
-# 自定义分辨率
-python convert_360_enhanced.py --resolution 5760:2880
+# 3. 结果在 exports/
 ```
 
-#### 命令行参数说明
-| 参数 | 说明 |
-|------|------|
-| `--camera` | 相机型号 (X3/X4/ONE_X2) |
-| `--preset` | 编码预设 (ultrafast~veryslow) |
-| `--crf` | 质量值 (0-51, 越小越好) |
-| `--ih-fov` | 输入水平视场角 |
-| `--iv-fov` | 输入垂直视场角 |
-| `--resolution` | 输出分辨率 (如 5760:2880) |
-| `--overwrite` | 覆盖已存在文件 |
-| `--status` | 仅显示状态 |
+<details>
+<summary>🔧 高级参数</summary>
 
-### 4. 学习路径
-1. 阅读 `tutorials/01_quick_start.md` 快速入门
-2. 阅读 `tutorials/02_insta360_to_pico_conversion.md` 转换详解
-3. 浏览 `learning/` 目录深入学习
-4. 参考 `examples/unity/` 开始开发
+```bash
+python convert_360_enhanced.py \
+  --camera X4 \              # 相机型号
+  --preset medium \         # 编码速度
+  --crf 20 \                # 质量 (越小越好)
+  --resolution 5760:2880 \  # 输出分辨率
+  --ih-fov 190 \            # 水平视场角
+  --iv-fov 190 \            # 垂直视场角
+  --status                  # 仅查看状态
+```
+
+</details>
 
 ---
 
-## 📊 项目结构
+## 📚 学习体系
+
+### 教程文档 (`tutorials/`)
+
+| 文档 | 描述 | 适合 |
+|:---|:---|:---|
+| [01_quick_start](tutorials/01_quick_start.md) | 5分钟上手指南 | 所有人 |
+| [02_insta360_conversion](tutorials/02_insta360_to_pico_conversion.md) | 转换原理+FFmpeg详解 | 创作者 |
+| [03_pico4_setup](tutorials/03_pico4_setup_guide.md) | 设备设置+故障排除 | 新手 |
+| [04_ai_content](tutorials/04_ai_content_guide.md) | AI生成器使用手册 | 开发者 |
+
+### 学习资源 (`learning/`)
+
+| 文档 | 阶段 | 内容 |
+|:---|:---:|:---|
+| [01_metaverse](learning/01_metaverse_introduction.md) | L1 | 元宇宙概念、核心技术 |
+| [02_vr_basics](learning/02_vr_development_basics.md) | L2 | Unity/C#/XR基础 |
+| [03_advanced](learning/03_advanced_topics.md) | L3 | 手部追踪/多人/优化 |
+| [04_roadmap](learning/04_vr_development_roadmap.md) | ALL | 5阶段完整路线图 |
+
+---
+
+## 📁 项目结构
 
 ```
 vr/
-├── main.py                         # 主入口程序
-├── convert_360.py                 # 基础视频转换脚本
-├── convert_360_enhanced.py        # 增强版视频转换脚本 ⭐
-├── sync_to_pico.py                # 设备同步脚本
-├── requirements.txt                # Python依赖
-├── config/                         # 配置目录
-│   ├── config.yaml                # 主配置文件
-│   └── config_loader.py           # 配置加载器
-├── learning/                       # 学习资源
-│   ├── 01_metaverse_introduction.md
-│   ├── 02_vr_development_basics.md
-│   └── 03_advanced_topics.md
-├── ai_content/                     # AI内容生成
-│   ├── vr_scene_generator.py
-│   ├── avatar_generator.py
-│   ├── story_generator.py
-│   ├── generated/                 # 生成的场景
-│   ├── avatars/                   # 生成的Avatar
-│   └── stories/                   # 生成的故事
-├── examples/                       # 示例代码
-│   └── unity/
-├── tutorials/                      # 教程
-│   ├── 01_quick_start.md
-│   └── 02_insta360_to_pico_conversion.md ⭐
-├── raw/                            # 原始视频输入
-└── exports/                        # 转换后视频输出
+├── 🎬 核心模块
+│   ├── main.py                     # 主入口 (交互菜单)
+│   ├── convert_360.py              # 基础转换
+│   ├── convert_360_enhanced.py     # ⭐ 增强版转换
+│   └── sync_to_pico.py             # ADB同步
+│
+├── 🤖 AI生成器 (ai_content/)
+│   ├── vr_scene_generator.py       # 场景模板
+│   ├── avatar_generator.py         # 角色生成
+│   └── story_generator.py          # 故事剧本
+│
+├── 💻 示例代码 (examples/unity/)
+│   ├── HelloPICO.cs               # 控制器交互
+│   └── VRMovement.cs              # 移动系统
+│
+├── 📚 文档
+│   ├── tutorials/                 # 4篇教程
+│   ├── learning/                  # 4篇学习资料
+│   └── config/                    # YAML配置
+│
+├── 📥 输入输出
+│   ├── raw/                       # 原始视频 (.gitignore)
+│   └── exports/                   # 转换结果 (.gitignore)
+│
+└── 📄 配置
+    ├── requirements.txt           # Python依赖
+    ├── config.yaml                # 全局配置
+    └── .gitignore                 # 隐私保护
 ```
 
 ---
 
 ## 🛠️ 技术栈
 
-| 类别 | 技术 |
-| :--- | :--- |
-| **VR设备** | PICO 4 |
-| **相机** | Insta360 X3/X4 |
-| **开发引擎** | Unity 3D |
-| **视频处理** | FFmpeg |
-| **设备通信** | ADB |
-| **编程语言** | Python 3.x, C# |
+| 层面 | 技术 |
+|:---|:---|
+| **VR设备** | PICO 4 (Snapdragon XR2) |
+| **全景相机** | Insta360 X3 / X4 |
+| **开发引擎** | Unity 2021+ (OpenXR) |
+| **视频处理** | FFmpeg v360滤镜 |
+| **设备通信** | Android Debug Bridge |
+| **运行时** | Python 3.10+ / C# |
 | **配置格式** | YAML |
 
 ---
 
-<a name="english-version"></a>
-## 🌐 English Version
+## 🗺️ 发展规划
 
-### Comprehensive PICO 4 VR Toolkit
-This project provides a complete toolkit for PICO 4 VR development, metaverse exploration, and AI-powered content creation.
+### v1.0 ✅ 当前版本
+- [x] Insta360 自动转换
+- [x] ADB 自动同步
+- [x] AI 内容生成器
+- [x] Unity 示例代码
+- [x] 完整学习体系 (8篇文档)
 
-### Key Features
-1.  **Insta360 Video Pipeline**: Convert and sync videos automatically
-2.  **Learning Resources**: Metaverse and VR development tutorials
-3.  **AI Content Generation**: VR scenes, avatars, and story scripts
-4.  **Unity Examples**: Ready-to-use VR code samples
+### v1.1 🔄 进行中
+- [ ] GUI 可视化界面
+- [ ] 批量队列处理
+- [ ] 更多相机型号
+- [ ] 转换进度条
+- [ ] 视频预览功能
 
-### Quick Start
+### v2.0 🔮 未来
+- [ ] Web 管理面板
+- [ ] 云端 GPU 加速
+- [ ] LLM 深度集成
+- [ ] 插件扩展系统
+- [ ] 多语言支持
+
+---
+
+## 🤝 参与贡献
+
+我们欢迎所有形式的贡献！
+
+### 贡献方式
+
+1. **🐛 报告问题** - [GitHub Issues](../../issues)
+2. **💡 功能建议** - 发起 Discussion
+3. **💻 代码提交** - Fork → 修改 → PR
+4. **📝 文档改进** - 完善教程/翻译
+5. **🌟 推广分享** - 帮助更多开发者
+
+### 开发流程
+
 ```bash
-pip install -r requirements.txt
-python main.py
+# 1. Fork 并克隆
+git clone https://github.com/<your-username>/pico4-insta360-guide.git
+
+# 2. 创建分支
+git checkout -b feature/amazing-feature
+
+# 3. 提交更改
+git commit -m '✨ Add amazing feature'
+
+# 4. 推送分支
+git push origin feature/amazing-feature
+
+# 5. 创建 Pull Request
 ```
 
-### Prerequisites
-- Python 3.x
-- FFmpeg (for video stitching)
-- ADB (for device sync)
-- Unity 3D (for VR development)
+---
+
+## 📊 项目统计
+
+<!-- 在实际项目中可以添加真实数据 -->
+<p align="center">
+  <img src="https://img.shields.io/github/repo-size/kevinten-ai/pico4-insta360-guide?style=flat-square" alt="Repo size">
+  <img src="https://img.shields.io/github/issues/kevinten-ai/pico4-insta360-guide?style=flat-square" alt="Issues">
+  <img src="https://img.shields.io/github/license/kevinten-ai/pico4-insta360-guide?style=flat-square" alt="License">
+  <img src="https://img.shields.io/github/last-commit/kevinten-ai/pico4-insta360-guide?style=flat-square" alt="Last commit">
+</p>
 
 ---
 
-## 🤝 贡献与支持
+## 🙏 致谢
 
-欢迎提交 Issue 或 Pull Request 来改进此项目！
+感谢以下开源项目和社区:
 
-- Maintainer: [kevinten-ai](https://github.com/kevinten-ai)
+- [Insta360](https://www.insta360.com/) - 出色的全景相机
+- [PICO Interactive](https://www.picoxr.com/) - 优秀的VR设备
+- [FFmpeg](https://ffmpeg.org/) - 强大的多媒体框架
+- [Unity Technologies](https://unity.com/) - 伟大的游戏引擎
+- 所有贡献者和使用者
 
 ---
 
-## 📝 许可证
+<div align="center">
 
-MIT License - 详见 [LICENSE](LICENSE) 文件
+**⭐ 如果这个项目对你有帮助，请给一个 Star! ⭐**
+
+[![Star History Chart](https://api.star-history.com/svg?repos=kevinten-ai/pico4-insta360-guide&type=Date)](https://star-history.com/#kevinten-ai/pico4-insta360-guide&Date)
+
+*最后更新于 2026年4月6日*
+
+</div>
