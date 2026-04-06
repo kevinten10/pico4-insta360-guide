@@ -1,0 +1,33 @@
+```mermaid
+graph TB
+    subgraph 硬件层
+        H1[PICO 4]
+        H2[Insta360]
+    end
+    
+    subgraph 处理层
+        P1[FFmpeg]
+        P2[Python]
+        P3[ADB]
+    end
+    
+    subgraph 开发层
+        D1[Unity]
+        D2[C#]
+        D3[OpenXR]
+    end
+    
+    subgraph 输出层
+        O1[VR视频]
+        O2[AI内容]
+        O3[Unity项目]
+    end
+    
+    H1 --> P3
+    H2 --> P1
+    P1 --> P2
+    P2 --> D1
+    P3 --> O1
+    D1 --> O2
+    D2 --> O3
+```

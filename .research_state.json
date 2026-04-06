@@ -1,0 +1,36 @@
+{
+  "research_count": 1,
+  "last_update": "2026-04-06T09:13:38.316539",
+  "verified_facts": {
+    "pico_4_specs": {
+      "resolution": "2160x2160 per eye",
+      "refresh_rate": "72Hz/90Hz",
+      "fov": "105°",
+      "processor": "Snapdragon XR2",
+      "weight": "304g (headset only)",
+      "verified": true,
+      "last_checked": "2026-04-06T09:13:38.313516"
+    },
+    "insta360_x3_specs": {
+      "video_resolution": "5.7K 360°",
+      "photo_resolution": "72MP",
+      "stabilization": "FlowState",
+      "waterproof": "10m",
+      "verified": true,
+      "last_checked": "2026-04-06T09:13:38.313516"
+    },
+    "ffmpeg_v360": {
+      "version": "4.4+",
+      "filter": "v360",
+      "supported_formats": [
+        "equirect",
+        "cubemap",
+        "dfisheye"
+      ],
+      "verified": true,
+      "last_checked": "2026-04-06T09:13:38.313516"
+    }
+  },
+  "pending_verifications": [],
+  "improvements_made": []
+}

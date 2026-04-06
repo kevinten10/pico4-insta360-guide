@@ -1,0 +1,16 @@
+```mermaid
+graph TD
+    A[Insta360拍摄] -->|INSV文件| B[放入raw/]
+    B --> C{选择转换模式}
+    C -->|基础模式| D[convert_360.py]
+    C -->|增强模式| E[convert_360_enhanced.py]
+    D --> F[FFmpeg处理]
+    E --> F
+    F -->|v360滤镜| G[等距柱状投影]
+    G --> H[exports/目录]
+    H --> I[sync_to_pico.py]
+    I -->|ADB推送| J[PICO 4观看]
+    
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style J fill:#bbf,stroke:#333,stroke-width:2px
+```

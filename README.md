@@ -271,6 +271,110 @@ PICO应用商店已有 **750+ VR应用** 和 **50+ MR应用**，其中包含：
 
 ---
 
+
+## 📊 架构图与流程图
+
+### 工作流程
+```mermaid
+graph TD
+    A[Insta360拍摄] -->|INSV文件| B[放入raw/]
+    B --> C{选择转换模式}
+    C -->|基础模式| D[convert_360.py]
+    C -->|增强模式| E[convert_360_enhanced.py]
+    D --> F[FFmpeg处理]
+    E --> F
+    F -->|v360滤镜| G[等距柱状投影]
+    G --> H[exports/目录]
+    H --> I[sync_to_pico.py]
+    I -->|ADB推送| J[PICO 4观看]
+    
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style J fill:#bbf,stroke:#333,stroke-width:2px
+```
+
+### 学习路径
+```mermaid
+graph LR
+    subgraph 入门阶段
+        A1[元宇宙概念] --> A2[PICO设备]
+        A2 --> A3[视频转换]
+    end
+    
+    subgraph 基础阶段
+        B1[Unity基础] --> B2[C#编程]
+        B2 --> B3[VR交互]
+    end
+    
+    subgraph 进阶阶段
+        C1[手部追踪] --> C2[多人网络]
+        C2 --> C3[UI设计]
+    end
+    
+    A3 --> B1
+    B3 --> C1
+    
+    style C3 fill:#f96,stroke:#333,stroke-width:2px
+```
+
+### AI生态系统
+```mermaid
+mindmap
+  root((PICO AI生态))
+    系统级AI
+      语音助手
+      场景生成
+      空间影像
+    应用级AI
+      3Dmaker
+      AI健身
+      AI推荐
+    开发者AI
+      ML推理
+      SecureMR
+      手势API
+    未来AI
+      实时翻译
+      内容生成
+      虚拟形象
+```
+
+### 技术栈架构
+```mermaid
+graph TB
+    subgraph 硬件层
+        H1[PICO 4]
+        H2[Insta360]
+    end
+    
+    subgraph 处理层
+        P1[FFmpeg]
+        P2[Python]
+        P3[ADB]
+    end
+    
+    subgraph 开发层
+        D1[Unity]
+        D2[C#]
+        D3[OpenXR]
+    end
+    
+    subgraph 输出层
+        O1[VR视频]
+        O2[AI内容]
+        O3[Unity项目]
+    end
+    
+    H1 --> P3
+    H2 --> P1
+    P1 --> P2
+    P2 --> D1
+    P3 --> O1
+    D1 --> O2
+    D2 --> O3
+```
+
+---
+
 ## 📁 项目结构
 
 ```
